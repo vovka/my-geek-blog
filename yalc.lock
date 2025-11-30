@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "packages": {
+    "blog-engine": {
+      "signature": "232eb767759d2c506ddaa84f3807289c",
+      "file": true
+    },
+    "blog-enhancer": {
+      "signature": "f01d3394f91cf39307b01e5276011cef",
+      "file": true
+    }
+  }
+}
