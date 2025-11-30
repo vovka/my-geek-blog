@@ -4,17 +4,28 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: write
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      # Fix dependencies to use GitHub references instead of yalc
+      # Setup SSH key for private repos
+      - name: Setup SSH key
+        uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # Fix dependencies to use GitHub SSH references instead of yalc
       - name: Update dependencies for CI
         run: |
-          npm pkg set dependencies.blog-engine="github:geek-blog/blog-engine#main"
-          npm pkg set dependencies.blog-enhancer="github:geek-blog/blog-enhancer#main"
+          rm -rf package-lock.json .yalc node_modules
+          npm pkg set dependencies.blog-engine="git+ssh://git@github.com/geek-blog/blog-engine.git"
+          npm pkg set dependencies.blog-enhancer="git+ssh://git@github.com/geek-blog/blog-enhancer.git"
+          echo "Updated package.json dependencies"
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -22,7 +33,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --verbose
 
       - name: Build site
         run: npx blog-engine build
