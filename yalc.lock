@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "blog-engine": {
-      "signature": "232eb767759d2c506ddaa84f3807289c",
+      "signature": "c6300a43ceb2716bcbe64a8cd5bbccc0",
       "file": true
     },
     "blog-enhancer": {
