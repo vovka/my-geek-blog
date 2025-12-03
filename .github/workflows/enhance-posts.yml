@@ -52,6 +52,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Setup SSH key for private repos
+      - name: Setup SSH key
+        uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # Fix dependencies to use GitHub SSH references instead of yalc
+      - name: Update dependencies for CI
+        run: |
+          rm -rf package-lock.json .yalc node_modules
+          npm pkg set dependencies.blog-engine="git+ssh://git@github.com/geek-blog/blog-engine.git"
+          npm pkg set dependencies.blog-enhancer="git+ssh://git@github.com/geek-blog/blog-enhancer.git"
+          echo "Updated package.json dependencies"
+
       - name: Determine final configuration
         id: config
         run: |
@@ -127,10 +141,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run enhancement agent
         env:
