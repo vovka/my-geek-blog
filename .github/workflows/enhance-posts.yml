@@ -145,11 +145,29 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Setup API keys
+        id: api-keys
+        run: |
+          # Set OPENAI_API_KEY fallback: prefer OPENAI_API_KEY, fallback to OPENROUTER_API_KEY
+          if [ -n "${{ secrets.OPENAI_API_KEY }}" ]; then
+            echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
+            echo "Using native OpenAI API"
+          elif [ -n "${{ secrets.OPENROUTER_API_KEY }}" ]; then
+            echo "OPENAI_API_KEY=${{ secrets.OPENROUTER_API_KEY }}" >> $GITHUB_ENV
+            echo "Using OpenRouter API (set as OPENAI_API_KEY for Vercel SDK)"
+          fi
+
+          # Set OPENROUTER_API_KEY if available
+          if [ -n "${{ secrets.OPENROUTER_API_KEY }}" ]; then
+            echo "OPENROUTER_API_KEY=${{ secrets.OPENROUTER_API_KEY }}" >> $GITHUB_ENV
+          fi
+
+          # Set UNSPLASH_ACCESS_KEY if available
+          if [ -n "${{ secrets.UNSPLASH_ACCESS_KEY }}" ]; then
+            echo "UNSPLASH_ACCESS_KEY=${{ secrets.UNSPLASH_ACCESS_KEY }}" >> $GITHUB_ENV
+          fi
+
       - name: Run enhancement agent
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
         run: |
           echo "## 🤖 Enhancement Agent Output" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
