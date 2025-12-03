@@ -1,0 +1,59 @@
+name: Enhance Draft Posts
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: 'LLM model to use'
+        required: false
+        type: string
+        default: 'amazon/nova-2-lite-v1:free
+
+      temperature:
+        description: 'Temperature 0.0-2.0'
+        required: false
+        type: string
+        default: '0.7'
+
+      enhancement_mode:
+        description: 'Enhancement mode'
+        required: false
+        type: choice
+        default: 'complete'
+        options:
+          - grammar_only
+          - expand
+          - complete
+          - custom
+
+      custom_prompt:
+        description: 'Custom prompt (when mode=custom)'
+        required: false
+        type: string
+        default: ''
+
+      max_steps:
+        description: 'Max agent steps'
+        required: false
+        type: string
+        default: '10'
+
+      debug_mode:
+        description: 'Enable verbose logging'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  enhance:
+    uses: geek-blog/blog-enhancer/.github/workflows/enhance-draft.yml@main
+    with:
+      model: ${{ inputs.model }}
+      temperature: ${{ inputs.temperature }}
+      enhancement_mode: ${{ inputs.enhancement_mode }}
+      custom_prompt: ${{ inputs.custom_prompt }}
+      max_steps: ${{ inputs.max_steps }}
+      debug_mode: ${{ inputs.debug_mode }}
+    secrets:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}

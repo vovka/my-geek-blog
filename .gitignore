@@ -2,8 +2,12 @@ node_modules
 dist
 .yalc
 yalc.lock
+*.log
 
 # Auto-generated files
 content/posts.js
 content/metadata.js
 content/pages.js
+
+# Enhanced files (artifacts only, not committed)
+*-enhanced.md
