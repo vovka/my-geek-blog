@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       model:
-        description: 'LLM model to use'
+        description: 'LLM model to use (OpenAI or OpenRouter)'
         required: false
         type: string
-        default: 'amazon/nova-2-lite-v1:free'
+        default: 'gpt-5-mini'
 
       temperature:
         description: 'Temperature 0.0-2.0'
@@ -74,7 +74,7 @@ jobs:
           if [ -z "$MODEL" ]; then
             MODEL="${{ vars.DEFAULT_MODEL }}"
             if [ -z "$MODEL" ]; then
-              MODEL="amazon/nova-2-lite-v1:free"
+              MODEL="gpt-5-mini"
             fi
           fi
           echo "model=$MODEL" >> $GITHUB_OUTPUT
