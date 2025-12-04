@@ -1,7 +1,7 @@
 ---
 title: "Welcome to My Blog"
-date: "2025-12-03"
-author: "Blog Author"
+date: "2025-11-22"
+author: "Volodymyr Shcherbyna"
 category: "General"
 excerpt: "Welcome to my blog! This is the first post demonstrating the Markdown to HTML processing capabilities with a beautiful, clean design."
 tags: ["welcome", "introduction", "getting-started"]
