@@ -5,7 +5,7 @@ author: "Volodymyr Shcherbyna"
 category: "General"
 excerpt: "Welcome to my blog! This is the first post demonstrating the Markdown to HTML processing capabilities with a beautiful, clean design."
 tags: ["welcome", "introduction", "getting-started"]
-featuredImage: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=450&fit=crop"
+coverImage: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=450&fit=crop"
 ---
 
 # Welcome to My Blog
