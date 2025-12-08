@@ -7,7 +7,7 @@ on:
         description: 'LLM model to use (OpenAI or OpenRouter)'
         required: false
         type: string
-        default: 'gpt-5-mini'
+        default: 'x-ai/grok-4.1-fast'
 
       temperature:
         description: 'Temperature 0.0-2.0'
@@ -44,6 +44,95 @@ on:
         type: boolean
         default: false
 
+      enhance_text:
+        description: 'Enable text enhancement'
+        required: false
+        type: boolean
+        default: true
+
+      auto_placeholders:
+        description: 'Enable AI-suggested image placeholders'
+        required: false
+        type: boolean
+        default: true
+
+      max_files:
+        description: 'Maximum number of files to process'
+        required: false
+        type: string
+        default: '10'
+
+      find_images:
+        description: 'Enable Unsplash image search'
+        required: false
+        type: boolean
+        default: true
+
+      generate_images:
+        description: 'Generate AI images (requires OpenRouter API key)'
+        required: false
+        type: boolean
+        default: false
+
+      image_provider:
+        description: 'Image generation provider (openai or openrouter)'
+        required: false
+        type: string
+        default: 'openrouter'
+
+      image_model:
+        description: 'Image generation model'
+        required: false
+        type: string
+        default: 'google/gemini-2.5-flash-image'
+
+      image_aspect_ratio:
+        description: 'Image aspect ratio'
+        required: false
+        type: choice
+        default: '16:9'
+        options:
+          - '16:9'
+          - '1:1'
+          - '4:3'
+          - '3:4'
+          - '9:16'
+
+      image_custom_prompt:
+        description: 'Custom instructions for images (e.g., "do not put text on images")'
+        required: false
+        type: string
+        default: ''
+
+      specific_file:
+        description: 'Process only this specific file'
+        required: false
+        type: string
+        default: ''
+
+      file_pattern:
+        description: 'Process files matching this pattern'
+        required: false
+        type: string
+        default: ''
+
+      output_mode:
+        description: 'Output mode for enhanced files'
+        required: false
+        type: choice
+        default: 'new_file'
+        options:
+          - overwrite
+          - new_file
+          - commit
+          - artifact
+
+      dry_run:
+        description: 'Show what would be done without making changes'
+        required: false
+        type: boolean
+        default: false
+
 jobs:
   enhance:
     runs-on: ubuntu-latest
@@ -74,7 +163,7 @@ jobs:
           if [ -z "$MODEL" ]; then
             MODEL="${{ vars.DEFAULT_MODEL }}"
             if [ -z "$MODEL" ]; then
-              MODEL="gpt-5-mini"
+              MODEL="x-ai/grok-4.1-fast"
             fi
           fi
           echo "model=$MODEL" >> $GITHUB_OUTPUT
@@ -121,6 +210,51 @@ jobs:
             echo "DEBUG=true" >> $GITHUB_ENV
           fi
 
+          # Text enhancement settings
+          if [ "${{ inputs.enhance_text }}" = "false" ]; then
+            echo "ENHANCE_TEXT=false" >> $GITHUB_ENV
+          fi
+
+          if [ "${{ inputs.auto_placeholders }}" = "false" ]; then
+            echo "IMAGE_AUTO_PLACEHOLDERS=false" >> $GITHUB_ENV
+          fi
+
+          # Max files
+          echo "MAX_FILES=${{ inputs.max_files }}" >> $GITHUB_ENV
+
+          # Image search settings
+          if [ "${{ inputs.find_images }}" = "false" ]; then
+            echo "IMAGE_SEARCH_ENABLED=false" >> $GITHUB_ENV
+          fi
+
+          # Image generation settings
+          if [ "${{ inputs.generate_images }}" = "true" ]; then
+            echo "IMAGE_GENERATION_ENABLED=true" >> $GITHUB_ENV
+            echo "IMAGE_PROVIDER=${{ inputs.image_provider }}" >> $GITHUB_ENV
+            echo "IMAGE_MODEL=${{ inputs.image_model }}" >> $GITHUB_ENV
+            echo "IMAGE_ASPECT_RATIO=${{ inputs.image_aspect_ratio }}" >> $GITHUB_ENV
+            if [ -n "${{ inputs.image_custom_prompt }}" ]; then
+              echo "IMAGE_CUSTOM_PROMPT=${{ inputs.image_custom_prompt }}" >> $GITHUB_ENV
+            fi
+          fi
+
+          # File selection
+          if [ -n "${{ inputs.specific_file }}" ]; then
+            echo "SPECIFIC_FILE=${{ inputs.specific_file }}" >> $GITHUB_ENV
+          fi
+
+          if [ -n "${{ inputs.file_pattern }}" ]; then
+            echo "FILE_PATTERN=${{ inputs.file_pattern }}" >> $GITHUB_ENV
+          fi
+
+          # Output mode
+          echo "OUTPUT_MODE=${{ inputs.output_mode }}" >> $GITHUB_ENV
+
+          # Dry run
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "DRY_RUN=true" >> $GITHUB_ENV
+          fi
+
       - name: Show configuration
         run: |
           echo "## 🔧 Configuration" >> $GITHUB_STEP_SUMMARY
@@ -131,9 +265,28 @@ jobs:
           echo "| Temperature | \`${{ steps.config.outputs.temperature }}\` |" >> $GITHUB_STEP_SUMMARY
           echo "| Enhancement Mode | \`${{ steps.config.outputs.mode }}\` |" >> $GITHUB_STEP_SUMMARY
           echo "| Max Steps | \`${{ steps.config.outputs.max_steps }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Enhance Text | \`${{ inputs.enhance_text }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Auto Placeholders | \`${{ inputs.auto_placeholders }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Max Files | \`${{ inputs.max_files }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Find Images | \`${{ inputs.find_images }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Generate Images | \`${{ inputs.generate_images }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Image Provider | \`${{ inputs.image_provider }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Image Model | \`${{ inputs.image_model }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Image Aspect Ratio | \`${{ inputs.image_aspect_ratio }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Output Mode | \`${{ inputs.output_mode }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Dry Run | \`${{ inputs.dry_run }}\` |" >> $GITHUB_STEP_SUMMARY
           echo "| Debug Mode | \`${{ inputs.debug_mode }}\` |" >> $GITHUB_STEP_SUMMARY
           if [ -n "${{ inputs.custom_prompt }}" ]; then
             echo "| Custom Prompt | \`${{ inputs.custom_prompt }}\` |" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -n "${{ inputs.image_custom_prompt }}" ]; then
+            echo "| Image Custom Prompt | \`${{ inputs.image_custom_prompt }}\` |" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -n "${{ inputs.specific_file }}" ]; then
+            echo "| Specific File | \`${{ inputs.specific_file }}\` |" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -n "${{ inputs.file_pattern }}" ]; then
+            echo "| File Pattern | \`${{ inputs.file_pattern }}\` |" >> $GITHUB_STEP_SUMMARY
           fi
           echo "" >> $GITHUB_STEP_SUMMARY
 
@@ -263,6 +416,7 @@ jobs:
           name: enhanced-blog-posts
           path: |
             content/posts/*-enhanced.md
+            public/generated-images/**/*.png
             agent-output.log
           retention-days: 7
 
