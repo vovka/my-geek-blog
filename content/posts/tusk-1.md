@@ -36,13 +36,13 @@ While language models can understand vague, human instructions, most desktop int
 
 ## What If the Computer Adapted to You?
 
-I envisioned a system that learns from me: I speak naturally, perhaps with noise or incomplete context, and the system grasps my intention—not just speech‑to‑text, but true understanding that triggers useful desktop actions.
+I envisioned a system that learns from me: I speak naturally, perhaps with noise or incomplete context, and the system grasps my intention—**not just speech‑to‑text, but true understanding** that triggers useful desktop actions.
 
-## Meet TUSK
+## Meet [TUSK](https://github.com/vovka/tusk/blob/main/docs/architecture.md)
 
 ![Cover Option 2](https://images.unsplash.com/photo-1554200876-907f9286c2a1?ixid=M3w4MzY0NTR8MHwxfHNlYXJjaHwxfHxkZXNrdG9wJTIwbWljcm9waG9uZSUyMG9mZmljZXxlbnwwfDB8fHwxNzgyMjUyODU1fDA&ixlib=rb-4.1.0&w=800&h=400&fit=crop)
 
-**TUSK** is my experiment in voice‑first desktop interaction, currently focused on Linux/GNOME. Its goal is not to replace the keyboard entirely, but to reduce friction by removing repetitive small actions and **making computer interaction feel more natural**. By letting AI interpret spoken intent, we can explore a desktop that understands *what* we want to do rather than *how* to click for it.
+**[TUSK](https://github.com/vovka/tusk/blob/main/docs/architecture.md)** is my experiment in voice‑first desktop interaction, currently focused on Linux/GNOME. Its goal is not to replace the keyboard entirely, but to reduce friction by removing repetitive small actions and **making computer interaction feel more natural**. By letting AI interpret spoken intent, we can explore a desktop that understands *what* we want to do rather than *how* to click for it.
 
 ## Why This Might Matter More Than It Seems
 
@@ -50,4 +50,4 @@ Voice is already here, and with modern AI it becomes far more capable than befor
 
 ## This Is Just the Beginning
 
-TUSK remains experimental, but it stems from a feeling I can no longer ignore: the way we use computers is evolving. **The next big interface** may not be another button or shortcut; it may simply be the **ability to say what we want**.
+[TUSK](https://github.com/vovka/tusk/blob/main/docs/architecture.md) remains experimental, but it stems from a feeling I can no longer ignore: the way we use computers is evolving. **The next big interface** may not be another button or shortcut; it may simply be the **ability to say what we want**.
