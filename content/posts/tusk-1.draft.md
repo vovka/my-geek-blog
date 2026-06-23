@@ -1,93 +1,83 @@
+---
+title: 'We Have AI, So Why Are We Still Clicking?'
+date: '2026-06-23'
+author: Author Name
+category: Technology
+excerpt: >-
+  Exploring how AI assistants change our workflow and why voice‑first desktop
+  interaction could be the next big interface.
+coverImage: >-
+  https://images.unsplash.com/photo-1588357767511-c6b3010409a3?ixid=M3w4MzY0NTR8MHwxfHNlYXJjaHw5fHxkZXNrdG9wJTIwbWljcm9waG9uZSUyMG9mZmljZXxlbnwwfDB8fHwxNzgyMjUyODU1fDA&ixlib=rb-4.1.0&w=800&h=400&fit=crop
+tags:
+  - AI
+  - voice control
+  - desktop interaction
+  - productivity
+  - Linux
+---
+
 # We Have AI, So Why Are We Still Clicking?
 
 ## When Coding Became… Talking
-In 2025, AI coding assistants became a normal part of my daily development workflow.
 
-At first, I mostly used them as coding helpers. I request small code snippets, explanations, refactoring help, or debugging support. But over time, I realized my work was changing in a bigger way.
-
-I began writing less traditional code myself and started giving more instructions instead.
-
-Of course, I still write code sometimes. But a big part of my work became more like a conversation: describing tasks, explaining context, correcting results, asking for alternatives, reviewing solutions, and moving forward from there.
+In 2025, AI coding assistants became a normal part of my daily development workflow. At first, I used them for small code snippets, explanations, refactoring, and debugging support. Over time, my work shifted from writing traditional code to giving instructions. I still write code occasionally, but most of my effort is now spent describing tasks, providing context, correcting results, asking for alternatives, and reviewing solutions.
 
 ## The Unexpected Problem: More AI, More Typing
-And this created a funny new problem.
 
-The more I used AI assistants, the more I had to type.
+![Close‑up of hands typing a long AI prompt on a backlit keyboard](https://images.unsplash.com/photo-1773855120479-3f5896628b7d?ixid=M3w4MzY0NTR8MHwxfHNlYXJjaHwxMXx8dHlwaW5nJTIwaGFuZHMlMjBBSSUyMHByb21wdCUyMGtleWJvYXJkJTIwb3ZlcmxvYWR8ZW58MHwwfHx8MTc4MjI1MjAzMHww&ixlib=rb-4.1.0&w=800&h=400&fit=crop)
 
-Long prompts, detailed explanations, technical context, corrections, examples, commands. Sometimes I felt that I was not programming less. I was just moving effort from writing code to writing instructions.
+<!-- IMAGE_PLACEHOLDER
+id: "more-ai-more-typing-1"
+searchKeywords: "hands typing, AI chat, long prompts"
+generationPrompt: "Close‑up of hands typing a long prompt into an AI chat window, with a speech‑to‑text waveform overlay, soft focus, professional style"
+altTextHint: "Typing extensive prompts for AI assistant"
+-->
 
-So I started using voice-to-text more often.
-
-At first, only for longer prompts. Then for notes. Then for messages. Then for task descriptions. And it felt surprisingly natural. Speaking is often faster than typing, especially when the goal is not to write a perfect final text, but to transfer intent.
+The more I used AI assistants, the more I had to type: long prompts, detailed explanations, technical context, corrections, examples, and commands. It felt like I wasn’t programming less; I was simply moving effort from writing code to writing instructions. To cope, I started using voice‑to‑text, first for long prompts, then for notes, messages, and task descriptions. Speaking proved faster than typing when the goal is to convey intent rather than produce a polished final text.
 
 ## A Simple Question That Changed Everything
-After some time, a question appeared in my head:
 
-If I can speak to AI and it understands what I want, why do I still control the rest of my computer in the old way?
+<!-- IMAGE_PLACEHOLDER
+id: "simple-question-1"
+searchKeywords: "person pondering, voice command, computer interaction"
+generationPrompt: "A thoughtful person looking at a computer screen, with a speech bubble containing a question about voice control, subtle AI elements, clean composition"
+altTextHint: "Question about voice control and computer interaction"
+-->
 
-Why do I still need to manually switch windows, open apps, move things around, copy and paste text, click buttons, remember shortcuts, and repeat small actions hundreds of times per day?
-
-The keyboard and mouse are great tools. I use them all the time. But they were designed for a different era of computing. They are precise, but not always expressive. They force us to translate intent into mechanical actions.
-
-“I want to open the terminal and move it to the right side of the screen” becomes several separate actions.
-
-“I want to dictate this message, clean it up, and paste it into the current chat” becomes another chain of manual steps.
-
-“I want to quickly prepare my workspace for this task” becomes opening windows, arranging them, switching contexts, and repeating the same ritual again and again.
-
-This started to feel strange to me.
+I began asking: If I can speak to AI and it understands me, why do I still control the rest of my computer the old way? Keyboard and mouse are precise but not always expressive; they force us to translate intent into mechanical actions—opening terminals, moving windows, copying text, clicking buttons, and repeating small actions hundreds of times daily.
 
 ## The Gap Between AI and the Desktop
-We now have language models that can understand vague, human, semantic instructions. But most desktop interaction is still based on exact clicks, hotkeys, menus, and commands.
 
-So I began searching for voice control tools.
+<!-- IMAGE_PLACEHOLDER
+id: "gap-between-ai-desktop-1"
+searchKeywords: "voice control tools, desktop UI, AI integration"
+generationPrompt: "Split screen showing a voice control interface on one side and traditional desktop shortcuts on the other, highlighting the contrast, modern design"
+altTextHint: "Contrast between AI voice control and traditional desktop UI"
+-->
 
-There are already mature solutions. Windows has built-in voice and Copilot-related features. Talon is a powerful cross-platform tool, especially popular among people who seriously use voice for coding and accessibility workflows. I did not deeply investigate macOS, but it also has its own ecosystem of voice and accessibility tools.
-
-These tools are impressive. But for my personal workflow, something was missing.
-
-Many voice control systems are still command-based. You have to learn their language. You need to remember exact phrases. You need to adapt yourself to the tool.
-
-But I wanted the opposite.
+While language models can understand vague, human instructions, most desktop interactions still rely on exact clicks, hotkeys, menus, and commands. Existing voice tools like Windows Copilot, Talon, and macOS accessibility features are impressive but require users to learn specific command languages. I wanted a tool that adapts to natural speech, handling imperfect phrasing and missing context, acting as an AI layer between intention and desktop actions.
 
 ## What If the Computer Adapted to You?
-I wanted the tool to adapt to me.
 
-I wanted to say something in a natural way, maybe not perfectly, maybe with some noise or context missing, and have the system understand the intention behind it.
+<!-- IMAGE_PLACEHOLDER
+id: "computer-adapts-1"
+searchKeywords: "AI bridging human intent, adaptive desktop"
+generationPrompt: "Illustration of an AI brain connecting to a computer desktop, translating spoken words into fluid actions, futuristic yet approachable style"
+altTextHint: "AI translating spoken intent into desktop actions"
+-->
 
-Not just speech-to-text.
-
-Not just fixed voice commands.
-
-Something closer to an AI layer between human intention and desktop actions.
+I envisioned a system that learns from me: I speak naturally, perhaps with noise or incomplete context, and the system grasps my intention—not just speech‑to‑text, but true understanding that triggers useful desktop actions.
 
 ## Meet TUSK
-That is how I started building TUSK.
 
-TUSK is my experiment in voice-first desktop interaction. At the moment, it is focused on Linux/GNOME, because that is my daily environment. The idea is simple: speak naturally, let AI understand the intent, and let the system perform useful desktop actions.
+![Cover Option 2](https://images.unsplash.com/photo-1554200876-907f9286c2a1?ixid=M3w4MzY0NTR8MHwxfHNlYXJjaHwxfHxkZXNrdG9wJTIwbWljcm9waG9uZSUyMG9mZmljZXxlbnwwfDB8fHwxNzgyMjUyODU1fDA&ixlib=rb-4.1.0&w=800&h=400&fit=crop)
 
-It is not meant to replace the keyboard completely. At least not now.
+TUSK is my experiment in voice‑first desktop interaction, currently focused on Linux/GNOME. Its goal is not to replace the keyboard entirely, but to reduce friction by removing repetitive small actions and making computer interaction feel more natural. By letting AI interpret spoken intent, we can explore a desktop that understands *what* we want to do rather than *how* to click for it.
 
-For me, the goal is different: reduce friction.
+## Why This Might Matter More Than It Seems
 
-I want to remove small repetitive actions from the workflow. I want to make interaction with the computer feel more natural. I want to explore what happens when the desktop becomes not just a set of windows and shortcuts, but something that can understand what I am trying to do.
+Voice is already here, and with modern AI it becomes far more capable than before. Whether the future brings neural interfaces or other modalities, voice offers an immediate, accessible bridge between human intent and computer actions. This project started as a personal tool, but its potential uses span developers, writers, researchers, support teams, power users, and accessibility workflows—anyone who repeats many small desktop actions daily.
 
-Why This Might Matter More Than It Seems
-Maybe voice is not the final interface. Maybe in the future we will use something closer to neural interfaces. But until that future becomes practical and widely available, voice is already here.
+## This Is Just the Beginning
 
-And with modern AI, voice becomes much more interesting than before.
-
-This project started as a personal tool.
-
-But the more I think about it, the more I see possible use cases: developers working with AI coding agents, people who write a lot, researchers, support teams, power users, accessibility workflows, and anyone who repeats many small desktop actions every day.
-
-This Is Just the Beginning
-TUSK is still an experiment.
-
-But it is based on a feeling I cannot ignore anymore:
-
-The way we use computers is changing.
-
-And maybe the next big interface is not another button, panel, or shortcut.
-
-Maybe it is simply the ability to say what we want.
+TUSK remains experimental, but it stems from a feeling I can no longer ignore: the way we use computers is evolving. The next big interface may not be another button or shortcut; it may simply be the ability to say what we want.
