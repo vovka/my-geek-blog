@@ -37,6 +37,8 @@ Local MCP Server → Bridge → HTTP Endpoint → ngrok/Tunnel → ChatGPT
 
 In this workflow, the bridge connects to the local tools and exposes them over an HTTP endpoint. By using a tool like ngrok or Cloudflare Tunnel, we provide ChatGPT with a public URL that it can communicate with, effectively turning your local machine into a set of capabilities the AI can call upon.
 
+https://github.com/user-attachments/assets/853b5eaa-4676-461b-bc6c-8ff5428ce814
+
 ## Proof of Concept
 
 To test this hypothesis, I built a simple bridge utilizing a filesystem MCP server. The results were immediate: ChatGPT could list files, read contents, and inspect directories on my machine in real-time.
@@ -77,3 +79,7 @@ If you are interested in exploring this further, there are already emerging proj
 This architecture enables ChatGPT to move beyond being a "chatbot" and become a "local agent." By granting it access to real environments—local files, internal dashboards, and logged-in sessions—we unlock entirely new workflows.
 
 While the risks are significant, the potential for productivity is immense. The concept is proven; the next step is refining the security layer to make this a safe, everyday tool for developers and power users.
+
+https://github.com/user-attachments/assets/234c2e0c-245e-48a2-b227-1b5b854656f5
+
+https://github.com/user-attachments/assets/e3b8dcf4-d549-47d3-a765-52ce9b0daaa2
