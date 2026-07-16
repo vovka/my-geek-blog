@@ -100,7 +100,7 @@ I wanted something affordable to start with—a **split keyboard** with the abil
 
 So I chose the cheapest option that matched those requirements, without knowing much about the model: a ~$100 copy of the **BastardKB Dilemma**.
 
-![Dilemma split keyboard with trackpad (original inspiration)](https://bastardkb.com/wp-content/uploads/2022/12/Dilemma-20-1.jpg)
+![BastardKB Dilemma split keyboard with Procyon-compatible trackpad](https://raw.githubusercontent.com/Bastardkb/Dilemma/main/pics/1n.JPG)
 
 After a while, it arrived. I brought it home, plugged it in, and it worked out of the box.
 
