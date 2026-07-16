@@ -17,16 +17,6 @@ tags:
   - mechanical keyboards
 ---
 
-<!-- COVER_IMAGE_VARIANTS_START
-This section shows cover image options for preview purposes.
-The first image is automatically set as coverImage in frontmatter.
-DELETE THIS ENTIRE SECTION before publishing.
--->
-![Cover Option 1 - SELECTED](https://images.unsplash.com/photo-1653786146466-9ac4d30a47f1?ixid=M3w4MzY0NTR8MHwxfHNlYXJjaHwxfHxzcGxpdCUyMGVyZ29ub21pYyUyMGtleWJvYXJkfGVufDB8MHx8fDE3NzA3MTYxMzV8MA&ixlib=rb-4.1.0&w=800&h=400&fit=crop)
-![Cover Option 2](https://images.unsplash.com/photo-1653786146814-fc617f0de776?ixid=M3w4MzY0NTR8MHwxfHNlYXJjaHwyfHxzcGxpdCUyMGVyZ29ub21pYyUyMGtleWJvYXJkfGVufDB8MHx8fDE3NzA3MTYxMzV8MA&ixlib=rb-4.1.0&w=800&h=400&fit=crop)
-![Cover Option 3](https://images.unsplash.com/photo-1742006544327-42d457618d79?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000)
-<!-- COVER_IMAGE_VARIANTS_END -->
-
 ## How It All Started: The Motivation
 
 For years, I relied on a compact portable Bluetooth keyboard equipped with a touchpad. While the touchpad left much to be desired in terms of precision, the setup was functional enough for my needs.
@@ -38,7 +28,6 @@ My typing transformed dramatically, resembling the frantic energy of the iconic 
 ![Slow typing mood (sloth vibes)](https://media1.tenor.com/m/GYYxsYIlxjcAAAAd/sloth-office.gif)
 
 ![2025 typing mode (Bruce Almighty typing)](https://media1.tenor.com/m/2SYxbEBLX_kAAAAd/typing-bruce-almighty.gif)
-
 
 
 Suddenly, I was writing far less code and spending most of my time composing natural language prompts to instruct AI assistants. Unfortunately, I couldn't find a reliable speech-to-text solution for Ubuntu, leading to relentless strain in my fingers, wrists, and forearms.
@@ -113,11 +102,6 @@ As a programmer, I rolled up my sleeves: cloned QMK, set up the build environmen
 
 That's when the real adventure began.
 
-![Cisne split keyboard with GMK WoB keycaps on table, affordable split keyboard clone with trackpad](https://images.unsplash.com/photo-1653786146814-fc617f0de776?ixid=M3w4MzY0NTR8MHwxfHNlYXJjaHwxfHxzcGxpdCUyMGtleWJvYXJkJTIwZXJnb25vbWljJTIwdHJhY2twYWR8ZW58MHwwfHx8MTc3MDcxNjE2OHww&ixlib=rb-4.1.0&w=800&h=400&fit=crop)
-
-![Caravelle-BLE split ergonomic keyboard with Infinikey WoB keycaps on black table, affordable clone with trackpad](https://images.unsplash.com/photo-1742006544327-42d457618d79?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000)
-
-![Vision split keyboard with GMK Godspeed keycaps on table, representing affordable split ergonomic keyboard clone with trackpad](https://images.unsplash.com/photo-1653786146466-9ac4d30a47f1?ixid=M3w4MzY0NTR8MHwxfHNlYXJjaHwzfHxzcGxpdCUyMGtleWJvYXJkJTIwZXJnb25vbWljJTIwdHJhY2twYWR8ZW58MHwwfHx8MTc3MDcxNjE2OHww&ixlib=rb-4.1.0&w=800&h=400&fit=crop)
 
 ## Reverse Engineering Everything
 
@@ -156,9 +140,6 @@ Behold: a Vial-enabled QMK split keyboard masterpiece.
 - **Tap Dance**: Contextual actions per tap style (tap = `(`, hold = `{`).
 - **Macros**: Programmable keystroke sequences.
 
-![Modern mechanical split keyboard with display, customized QMK Vial with RGB underglow and macros](https://images.unsplash.com/photo-1760656523257-4f89c1e41fb1?ixid=M3w4MzY0NTR8MHwxfHNlYXJjaHwxfHxzcGxpdCUyMG1lY2hhbmljYWwlMjBrZXlib2FyZCUyMFJHQiUyMGN1c3RvbXxlbnwwfDB8fHwxNzcwNzE2MTY4fDA&ixlib=rb-4.1.0&w=800&h=400&fit=crop)
-
-![Colorful illuminated mechanical split keyboard, final customized QMK Vial setup with RGB and advanced features](https://images.unsplash.com/photo-1763136469649-a2d3c15c7723?ixid=M3w4MzY0NTR8MHwxfHNlYXJjaHwyfHxzcGxpdCUyMG1lY2hhbmljYWwlMjBrZXlib2FyZCUyMFJHQiUyMGN1c3RvbXxlbnwwfDB8fHwxNzcwNzE2MTY4fDA&ixlib=rb-4.1.0&w=800&h=400&fit=crop)
 
 ![Mechanical keyboard with rainbow RGB lighting, showcasing final custom QMK Vial split keyboard with macros and trackpad](https://images.unsplash.com/photo-1766656533864-2314b462d439?ixid=M3w4MzY0NTR8MHwxfHNlYXJjaHw0fHxzcGxpdCUyMG1lY2hhbmljYWwlMjBrZXlib2FyZCUyMFJHQiUyMGN1c3RvbXxlbnwwfDB8fHwxNzcwNzE2MTY4fDA&ixlib=rb-4.1.0&w=800&h=400&fit=crop)
 
