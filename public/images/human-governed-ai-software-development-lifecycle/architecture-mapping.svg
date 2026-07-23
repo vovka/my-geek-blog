@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Architecture Mapping</title><desc id="desc">Current architecture baseline beside a proposed architecture with a new recommendation service and database. A human approves the direction before AI plans implementation.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#344054"/></marker><style>.t{font-family:Arial,sans-serif;fill:#101828}.h{font-size:44px;font-weight:700}.s{font-size:24px;font-weight:700}.n{font-size:21px}.p{fill:#f8fafc;stroke:#475467;stroke-width:3}.new{fill:#eaf8ec;stroke:#2e8b3c;stroke-width:4}.human{fill:#e8f1ff;stroke:#1769d2;stroke-width:4}.ai{fill:#edf9ee;stroke:#2e8b3c;stroke-width:4}.line{fill:none;stroke:#344054;stroke-width:4;marker-end:url(#a)}.green{stroke:#2e8b3c}</style></defs>
+<rect width="1600" height="900" fill="white"/><text class="t h" x="800" y="65" text-anchor="middle">Architecture Mapping</text>
+<rect x="55" y="105" width="700" height="585" rx="24" fill="white" stroke="#667085" stroke-width="4"/><text class="t s" x="405" y="155" text-anchor="middle">Current baseline</text>
+<rect class="p" x="275" y="190" width="260" height="68" rx="15"/><text class="t n" x="405" y="233" text-anchor="middle">Web UI</text>
+<rect class="p" x="275" y="300" width="260" height="68" rx="15"/><text class="t n" x="405" y="343" text-anchor="middle">Public API</text>
+<rect class="p" x="95" y="430" width="260" height="68" rx="15"/><text class="t n" x="225" y="473" text-anchor="middle">Auth Service</text>
+<rect class="p" x="455" y="430" width="260" height="68" rx="15"/><text class="t n" x="585" y="473" text-anchor="middle">Order Service</text>
+<rect class="p" x="455" y="560" width="260" height="68" rx="15"/><text class="t n" x="585" y="603" text-anchor="middle">Orders DB</text>
+<path class="line" d="M405 258V300"/><path class="line" d="M405 368V400H225V430"/><path class="line" d="M405 368V400H585V430"/><path class="line" d="M585 498V560"/>
+<rect x="845" y="105" width="700" height="585" rx="24" fill="white" stroke="#1769d2" stroke-width="5"/><text class="t s" x="1195" y="155" text-anchor="middle">Proposed change</text>
+<rect class="p" x="925" y="190" width="240" height="68" rx="15"/><text class="t n" x="1045" y="233" text-anchor="middle">Web UI</text>
+<rect class="p" x="925" y="300" width="240" height="68" rx="15"/><text class="t n" x="1045" y="343" text-anchor="middle">Public API</text>
+<rect class="p" x="865" y="430" width="240" height="68" rx="15"/><text class="t n" x="985" y="473" text-anchor="middle">Auth Service</text>
+<rect class="p" x="1135" y="430" width="240" height="68" rx="15"/><text class="t n" x="1255" y="473" text-anchor="middle">Order Service</text>
+<rect class="p" x="1135" y="560" width="240" height="68" rx="15"/><text class="t n" x="1255" y="603" text-anchor="middle">Orders DB</text>
+<rect class="new" x="1375" y="300" width="145" height="90" rx="15"/><text class="t n" x="1448" y="335" text-anchor="middle">NEW</text><text class="t n" x="1448" y="365" text-anchor="middle">Recommendation</text>
+<rect class="new" x="1375" y="470" width="145" height="90" rx="15"/><text class="t n" x="1448" y="505" text-anchor="middle">NEW</text><text class="t n" x="1448" y="535" text-anchor="middle">Recommendations DB</text>
+<path class="line" d="M1045 258V300"/><path class="line" d="M1045 368V400H985V430"/><path class="line" d="M1045 368V400H1255V430"/><path class="line" d="M1255 498V560"/><path class="line green" d="M1165 334H1375"/><path class="line green" d="M1448 390V470"/>
+<rect class="human" x="115" y="740" width="600" height="105" rx="18"/><text class="t s" x="415" y="782" text-anchor="middle">Human checkpoint</text><text class="t n" x="415" y="818" text-anchor="middle">Approve architectural direction</text>
+<rect class="ai" x="885" y="740" width="600" height="105" rx="18"/><text class="t s" x="1185" y="782" text-anchor="middle">AI execution</text><text class="t n" x="1185" y="818" text-anchor="middle">Use the approved artifact to plan code changes</text>
+<path class="line" d="M715 792H885"/>
+</svg>
