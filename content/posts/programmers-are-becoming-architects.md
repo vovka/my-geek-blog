@@ -14,6 +14,7 @@ tags:
   - software architecture
   - vibe coding
   - technical debt
+comments: true
 ---
 
 This post continues a thought from my earlier article, [**We No Longer Own the Code**](/we-no-longer-own-the-code). But this time I want to try a new format: a small debate with AI. First comes my position, argument by argument. Alongside each one, I let AI respond to it directly—supporting some parts, challenging others, and checking whether the argument holds.
