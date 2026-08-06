@@ -13,6 +13,7 @@ tags:
   - coding agents
   - software factory
 comments: true
+commentId: human-governed-ai-software-development-lifecycle
 ---
 
 > ## TL;DR
@@ -59,7 +60,6 @@ The lifecycle should remain stable even when the agents, models, orchestration t
 ## The complete lifecycle
 
 The following diagram shows the process at a high level. Blue nodes are explicit human checkpoints. Green nodes are AI-owned execution stages. Architecture mapping is prepared by AI but requires human approval before implementation proceeds.
-
 
 ```mermaid
 flowchart LR
@@ -157,7 +157,6 @@ For a greenfield project, this may include creating the first version of the arc
 For a brownfield project, these architectural artifacts should already exist.
 
 Instead of rediscovering the architecture from the codebase for every new task, the team identifies which parts of the existing architecture must change.
-
 
 For example, suppose the current system looks like this:
 
@@ -262,7 +261,6 @@ Implementation does not have to start immediately. The team can create the plan 
 
 The orchestration layer is also an abstraction. A company may use one strong model as a central orchestrator, allow engineers to launch agents manually, or use a custom internal service.
 
-
 ```mermaid
 flowchart TD
     accTitle: Agent orchestration and pull-request workflow
@@ -311,7 +309,6 @@ Agents should not work in an unrestricted environment.
 Every engineering organization should provide a development harness that defines how agents are expected to operate.
 
 The harness is the combination of instructions, tools, skills, hooks, policies, templates, checks, and guardrails available to every agent.
-
 
 It may include project-specific rules such as:
 
@@ -553,7 +550,6 @@ The cost is formed from several different layers:
 
 The last item will usually remain the largest cost. Token cost matters, but the meaningful metric is not cost per token. It is **cost per accepted feature**.
 
-
 ```mermaid
 flowchart LR
     accTitle: Feature cost model
@@ -647,7 +643,6 @@ A useful planning range is therefore:
 These are not fixed prices. Repository size, cache effectiveness, cache creation, output volume, reasoning effort, failed attempts, parallelism, long-context premiums, and review depth can change the result by an order of magnitude.
 
 The factory should be evaluated against the human time and accepted output it produces. Spending $50 on agents is expensive if it creates code that cannot be trusted. It is extremely cheap if it replaces several days of routine execution while preserving human architectural control.
-
 
 ## The human remains accountable
 
