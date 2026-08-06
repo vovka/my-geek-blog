@@ -12,6 +12,7 @@ tags:
   - software architecture
   - coding agents
   - software factory
+comments: true
 ---
 
 > ## TL;DR
