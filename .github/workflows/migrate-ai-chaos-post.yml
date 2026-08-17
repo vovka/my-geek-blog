@@ -1,0 +1,82 @@
+name: One-shot migrate AI chaos post
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/migrate-ai-chaos-post.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out production blog
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Copy post and illustrations from test blog
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          slug='ai-can-govern-chaos-humans-cant-maybe-we-should-make-it-forget'
+          post="content/posts/${slug}.md"
+          image_dir="public/images/${slug}"
+          source_base='https://raw.githubusercontent.com/vovka/my-geek-blog-test/main'
+
+          mkdir -p "$image_dir"
+          curl -fsSL "$source_base/$post" -o "$post"
+
+          for n in $(seq 1 15); do
+            curl -fsSL "$source_base/$image_dir/$n.png" -o "$image_dir/$n.png"
+          done
+
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          slug = 'ai-can-govern-chaos-humans-cant-maybe-we-should-make-it-forget'
+          path = Path('content/posts') / f'{slug}.md'
+          text = path.read_text(encoding='utf-8')
+
+          pattern = re.compile(
+              r'https://github\.com/vovka/my-geek-blog-test/blob/[^/]+/'
+              r'public/images/' + re.escape(slug) + r'/(\d+\.png)\?raw=true'
+          )
+          text, replacements = pattern.subn(r'/images/' + slug + r'/\1', text)
+
+          if replacements == 0:
+              raise SystemExit('No test-repository image URLs were found to rewrite')
+          if 'github.com/vovka/my-geek-blog-test/blob/' in text and '/public/images/' in text:
+              raise SystemExit('At least one test-repository image URL remains after rewrite')
+
+          path.write_text(text, encoding='utf-8')
+          print(f'Rewrote {replacements} image references')
+          PY
+
+          test "$(find "$image_dir" -maxdepth 1 -name '*.png' | wc -l)" -eq 15
+          ! grep -q 'github.com/vovka/my-geek-blog-test/blob/.*public/images/' "$post"
+
+      - name: Commit migration to production main
+        shell: bash
+        run: |
+          set -euo pipefail
+          slug='ai-can-govern-chaos-humans-cant-maybe-we-should-make-it-forget'
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "content/posts/${slug}.md" "public/images/${slug}"
+
+          if git diff --cached --quiet; then
+            echo 'Nothing to migrate.'
+            exit 0
+          fi
+
+          git commit -m 'Publish AI context-window article with local illustrations'
+          git pull --rebase origin main
+          git push origin HEAD:main
