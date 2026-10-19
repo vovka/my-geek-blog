@@ -25,3 +25,8 @@ Bare links from LinkedIn, Telegram or chat apps arrive with no referrer and show
   the author asked for (default: `linkedin`).
 - Never put UTM parameters in the post's canonical URL, sitemap, internal links, or Giscus backlink.
 - Every post needs a non-empty `excerpt`; it becomes the `<meta name="description">` of the static page.
+## Article conventions
+
+- Every article starts with a TL;DR right after the front matter (and after the italic lead-in, if any), as a
+  Markdown blockquote so it stands out from the body: `> **TL;DR:** one paragraph, 3–5 sentences.`
+  Example: `content/posts/ai-can-govern-chaos-humans-cant-maybe-we-should-make-it-forget.md`.
